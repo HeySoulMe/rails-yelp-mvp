@@ -1,0 +1,16 @@
+<h1>My restaurants :</h1>
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= check_box("undone", "done")%>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+      <%= link_to "🗑",
+        restaurant_path(restaurant),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a new restaurant", restaurants_new_path %>
